@@ -278,12 +278,13 @@ norm <- norm_gene[rowSums(norm_gene[])>0,]
 ph <- pheatmap(norm,  
          annotation_col = subset(column_data, select=c(treatment)), 
          show_rownames = TRUE,
+         annotation_names_col = FALSE,
          scale = 'row',
          fontsize_row = 8,
          cellheight = 7,
          cutree_rows = 5)
 
-ggsave("transciptome.pdf", ph, device="pdf")
+ggsave("transcriptome.pdf", ph, device="pdf", height = 8.5)
 ```
 
 
