@@ -1,0 +1,39 @@
+"0","proj <- qAlign(sample_file, genome, paired = ""fr"", clObj = cl)"
+"2","alignment files missing - need to:
+"
+"2","    create 3 genomic alignment(s)
+"
+"2","will start in "
+"2","..9s"
+"2","..8s"
+"2","..7s"
+"2","..6s"
+"2","..5s"
+"2","..4s"
+"2","..3s"
+"2","..2s"
+"2","..1s"
+"2","
+"
+"2","Testing the compute nodes..."
+"2","OK
+"
+"2","Loading QuasR on the compute nodes..."
+"2","OK
+"
+"2","Available cores:
+"
+"2","terminal: 6
+"
+"2","Performing genomic alignments for 3 samples. See progress in the log file:
+"
+"2","/home/ra/bioinfo/anya/QuasR_log_9ff5bee760f.txt
+"
+"2","[bam_sort_core] merging from 1 files and 1 in-memory blocks...
+"
+"2","[bam_sort_core] merging from 1 files and 1 in-memory blocks...
+"
+"2","Genomic alignments have been created successfully
+"
+"2","
+"

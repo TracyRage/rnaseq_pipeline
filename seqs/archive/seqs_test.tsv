@@ -1,0 +1,4 @@
+FileName1	FileName2	SampleName
+F1_1.fastq.gz	F1_2.fastq.gz	PHE1
+P1_1.fastq.gz	P1_2.fastq.gz	CTRL1
+Py1_1.fastq.gz	Py1_2.fastq.gz	PY1

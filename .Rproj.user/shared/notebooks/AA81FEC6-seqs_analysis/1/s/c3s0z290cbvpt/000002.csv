@@ -1,0 +1,8 @@
+"0","library(QuasR); library(GenomicRanges)"
+"0","library(GenomicFeatures); library(parallel)"
+"0","library(dplyr); library(pheatmap)"
+"0","library(rtracklayer); library(tidyr)"
+"0","library(stringr); library(tibble)"
+"0","library(DESeq2); library(stats)"
+"0","library(EDASeq); library(RUVSeq)"
+"0","library(ggplot2)"

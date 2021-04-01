@@ -1,0 +1,2 @@
+"0","# MA Plot"
+"0","ma_plot <- DESeq2::plotMA(object=dds, ylim=c(-5,5))"

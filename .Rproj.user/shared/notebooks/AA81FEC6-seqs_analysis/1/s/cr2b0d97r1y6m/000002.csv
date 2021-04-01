@@ -1,0 +1,5 @@
+"0","par(mfrow = c(1,2))"
+"0",""
+"0","plotPCA(set, col=as.numeric(column_data$group),"
+"0","        main = 'without RUVs', adj = 0.5,"
+"0","        ylim = c(-0.75, 0.75), xlim = c(-0.75, 0.75))"

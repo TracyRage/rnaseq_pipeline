@@ -1,0 +1,4 @@
+"0","par(mfrow=c(1,2))"
+"0","plotRLE(set, outline=F, col=as.numeric(column_data$group),"
+"0","        main=""without RUVs"", ylim=c(-4,4))"
+"2","NAs introduced by coercion"

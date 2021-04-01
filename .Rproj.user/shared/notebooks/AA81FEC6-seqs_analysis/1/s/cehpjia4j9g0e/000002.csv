@@ -1,0 +1,4 @@
+"0","# Detect available cores"
+"0","core_number <- detectCores()-2"
+"0","# Initialize cluster"
+"0","cl <- makeCluster(core_number)"

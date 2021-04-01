@@ -1,0 +1,34 @@
+---
+title: "RNAseq raw QC"
+subtitle: "anya project"
+---
+#### Load library
+```{r}
+library(Rqc)
+```
+
+#### Check quality of anya seqs
+```{r}
+qcRes <- rqc(path="seqs",
+             pair=c(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9),
+             pattern=".fastq.gz",
+             openBrowser = FALSE)
+```
+
+#### Check cycle quality
+```{r}
+cycle_qc <- rqcCycleQualityBoxPlot(qcRes)
+```
+> Conclusion: Median quality = 37 (very good score, passing)
+
+#### Check base call quality
+```{r}
+base_call_qc <- rqcCycleBaseCallsLinePlot(qcRes)
+```
+> Conclusion: Standard forward bias (passing)
+
+#### Check frequency quality
+```{r}
+read_freq_qc <- rqcReadFrequencyPlot(qcRes)
+```
+> Conclusion: ~5% seqs with more than 10k copies (passing)

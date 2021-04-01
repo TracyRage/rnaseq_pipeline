@@ -1,0 +1,10 @@
+"0","result <- qCount(proj, gtfRegionList)"
+"2","hierarchically removing redundancy from 'query'..."
+"2","done
+"
+"2","counting alignments..."
+"2","done
+"
+"2","collapsing counts by query name..."
+"2","done
+"
