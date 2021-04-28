@@ -1,0 +1,15 @@
+accession,plasmid,class,rep_phylogeny,phenotype
+AF078924,pM3/pMT2,IncP-9,alpha,antibiotic resistance
+NC_003350,pWW0,IncP-9,beta,naphthalene_tol
+AF491307,pDT61,IncP-9,delta,naphthalene
+NC_007926,NAH7,IncP-9,epsilon,naphthalene
+NC_025015,pBBR1,IncP-9,NA,antibiotic resistance
+AF251343,pSVS15,IncP-9,theta,xylene
+NC_010888,pNL15,IncP-9,eta,naphthalene
+NC_014003,pSN11,IncP-9,delta,naphthalene
+NZ_CP059053,pBS1141,IncP-9,beta,naphthalene
+AY208917,pND6-1,IncP-7,beta,naphthalene
+AB238971,pWW53,IncP-7,beta,naphthalene_tol
+AB434906,pDK1,IncP-7,beta,naphthalene
+AB088420,pCAR1,IncP-7,NA,NA
+AB910524,pVI150,IncP-2,NA,phenol_dmp

@@ -1,6 +1,14 @@
 ---
 title: "Transcriptome analysis"
 subtitle: "anya project"
+params:
+  genome: !!r here::here("genome", "stutzeri_genome.fasta")
+  seqs: !!r here::here("seqs", "seqs.tsv")
+  auxilliary: !!r here::here("genome", "additional_seqs.tsv")
+  gff: !!r here::here("genome", "annotation.gff")
+  column_data: !!r here::here("seqs", "column_data.tsv")
+  go: !!r here::here("genome", "go_annot.csv")
+  pathway: !!r here::here("genome", "pathways.csv")
 ---
 
 #### Markdown option
@@ -10,281 +18,157 @@ knitr::opts_chunk$set(echo=FALSE, message = FALSE)
 
 #### Load packages
 ```{r message=FALSE, echo=FALSE}
-library(QuasR); library(GenomicRanges)
-library(GenomicFeatures); library(parallel)
-library(dplyr); library(pheatmap)
-library(rtracklayer); library(tidyr)
-library(stringr); library(tibble)
-library(DESeq2); library(stats)
-library(EDASeq); library(RUVSeq)
-library(ggplot2)
+source("utilityFuns.R")
+library(tidyverse)
+library(RUVSeq)
+library(janitor)
 ```
 
 #### Calculate number of cores
 ```{r}
 # Detect available cores
-core_number <- detectCores()-2
+core_number <- parallel::detectCores()-4
 # Initialize cluster
-cl <- makeCluster(core_number)
+cl <- parallel::makeCluster(core_number)
 ```
 
-
-#### Load sample and genome file
+#### Load annotation files
 ```{r}
-# Load genome file
-genome <- here::here("genome", "archive", "stutzeri_genome.fasta")
-
-# Load samples file
-sample_file <- here::here("seqs", "seqs.tsv")
-
-# Load annotation file
-annotation_file <- here::here("genome", "archive", "stutzeri_annotation.gff")
+# Load gff file
+gtfRegionList <- clean_gff(annotation_file=params$gff)
 
 # Load additional samples metadata
-column_data <- readr::read_tsv(here::here("seqs", "column_data.tsv")) %>% 
-  column_to_rownames("sample") %>% janitor::clean_names()
+column_data <- clean_column_metadata(params$column_data)
 ```
 
-#### Map genome
+#### Mapping
 ```{r}
-proj <- qAlign(sample_file, genome, 
-               paired = "fr", 
-               clObj = cl)
+proj <- func_align(genome = params$genome,
+                   seqs_file = params$seqs,
+                   aux = params$auxilliary)
 ```
 
-#### Second map
-```{r}
-genome_2 <- here::here("genome", "273_strain.fasta")
-sample_file_2 <- here::here("seqs", "seq_uno.tsv")
-proj_2 <- qAlign(sample_file_2, genome_2,
-                 paired="fr",
-                 clObj = cl)
-```
 
 #### Check mappings
 ```{r}
 stats <- alignmentStats(proj)
 ```
 
-### Clean gff files
-```{r}
-pre_count <- function(annotation_file, format="gff") {
-  # Import gff data
-  gtf_regions <- import.gff(annotation_file, format=format)
-  # Clean annotation data
-  gene_df <- tibble(data.frame(gtf_regions)) %>% select(gene) %>% drop_na() %>% pull()
-  names(gtf_regions) <- gene_df
-  # Return clean annotation file
-  gtfRegionList <- split(gtf_regions, names(gtf_regions))
-}
-
-gtfRegionList <- pre_count(annotation_file)
-```
-
 #### Quantification
 ```{r}
-result <- qCount(proj, gtfRegionList)
+result <- qCount(proj, gtfRegionList, orientation = "same")
 ```
 
-#### Render quantification tibble
+#### Render quantification and gene product tibbles
 ```{r}
-# Create metadata table
-gene_df <- tibble(data.frame(gtfRegionList)) %>%
-  select(gene, product) %>%
-  drop_na() %>%
-  distinct()
-
-# Transfrom quantification matrix into tibble
-result_df <- tibble(rownames_to_column(data.frame(result), var="gene"))
+# Create counts tibble
+result_df <- make_tibble(gtfRegionList, result)$counts_df
 ```
 
-### Differential expresion analysis (before RUVs)
+#### Prepare data from EDA and normalization
 ```{r}
-# Read count data
-count_data <- result_df %>% 
-  select(-width) %>% 
-  column_to_rownames("gene")
-
-# Design
-design_formula <- "~ group"
-
-# Run DESeq2
-dds <- DESeqDataSetFromMatrix(countData = count_data,
-                              colData = column_data,
-                              design = as.formula(design_formula))
-
-# Count total # of reads for each read. Remove null gene count
-dds <- dds[rowSums(DESeq2::counts(dds)) > 1, ]
-
-# Render DESeqDataSet
-dds <- DESeq(dds)
-
-DEresults <- as.data.frame(results(dds, contrast = c("group", "py", "ctrl")))
-pah_tibble <- rownames_to_column(DEresults, "gene") %>% tibble()
-
+set <- prep_eda(column_data = column_data,
+                counts_matrix = result)
 ```
 
-# DESeq QC (before RUVs)
+#### Choose index for unwanted variance (k, RUVs)
 ```{r}
-# MA Plot
-ma_plot <- DESeq2::plotMA(object=dds, ylim=c(-5,5))
-# p-value distribution
-library(ggplot2)
-p_values <- ggplot(data=as.data.frame(DEresults), aes(x=pvalue)) +
-  geom_histogram(bins=150)
-
-# PCA
-rld <- rlog(dds)
-pca_graph <- DESeq2::plotPCA(rld, ntop = 151, intgroup = 'group') + theme_bw()
-
-# RLE plot
-par(mfrow=c(1,2))
-
-result_no_length <- subset(result, select=-width)
-plotRLE(result_no_length, outline=F, col=as.numeric(column_data$group_2),
-        main="Raw counts")
-
-plotRLE(DESeq2::counts(dds, normalized=T),
-        outline=F, col=as.numeric(column_data$group_2),
-        main="Normalized counts")
+pick_k(column_data = column_data,
+       eda_set = set)
 ```
-> Samples should be additionally normalizated (unknown variation)
 
-
-#### RUVs normalizing (choosing the best option)
+#### Rectify EDA set matrix, based on k=2 from previous step
 ```{r}
-# Prepare raw count table for further analysis
-prep_result <- tibble(rownames_to_column(as.data.frame(result, var="gene"))) %>% 
-  filter(PHE1 != 0) %>% 
-  select(-width) %>% 
-  column_to_rownames() %>% 
-  as.matrix()
-# create a seqExpressionSet object using EDASeq package
-set <- newSeqExpressionSet(counts=prep_result,
-                           phenoData = column_data)
-
 differences <- makeGroups(column_data$group)
-
-par(mfrow = c(2, 2))
-
-for (k in 1:4) {
-  set_s <- RUVs(set, unique(rownames(set)),
-                k=k, differences)
-  plotPCA(set_s, col=as.numeric(column_data$group),
-          cex=0.9, adj=0.5,
-          main=paste0("with RUVs, k=",k),
-          ylim=c(-1,1), xlim=c(-0.6, 0.6))
-}
-```
-> k=3 is the best fit
-
-### Redo normalization QC
-```{r}
-set_s <- RUVs(set, unique(rownames(set)), k=3, differences)
+set_s <- RUVs(set, unique(rownames(set)), k=2, differences)
 ```
 
-### Plot RLE (after RUVs)
+#### Compare initial set vs rectified set_s objects
+#### Compare RLE plots
 ```{r}
-par(mfrow=c(1,2))
-plotRLE(set, outline=F, col=as.numeric(column_data$group),
-        main="without RUVs", ylim=c(-4,4))
-plotRLE(set_s, outline=F, col=as.numeric(column_data$group),
-        main="with RUVs", ylim=c(-4,4))
-```
-> RUVs contributes to a better normalization
-
-### PCA (after RUVs)
-```{r}
-par(mfrow = c(1,2))
-
-plotPCA(set, col=as.numeric(column_data$group),
-        main = 'without RUVs', adj = 0.5,
-        ylim = c(-0.75, 0.75), xlim = c(-0.75, 0.75))
-plotPCA(set_s, col=as.numeric(column_data$group),
-        main = 'with RUVs', adj = 0.5,
-        ylim = c(-0.75, 0.75), xlim = c(-0.75, 0.75))
+compare_RLE(column_data = column_data,
+            initial_set = set,
+            rectified_set = set_s)
 ```
 
-### Heatmap (after RUVs)
+#### Compare PCA plots
 ```{r}
-normCountData <- normCounts(set_s)
-
-selectedGenes <- names(sort(apply(normCountData, 1, var), decreasing = TRUE))[1:114]
-
-pheatmap(normCountData[selectedGenes,], 
-         annotation_col = column_data, 
-         show_rownames = FALSE,
-         scale = 'row')
+compare_PCA(column_data = column_data,
+            initial_set = set,
+            rectified_set = set_s)
 ```
 
-### Re-run DESeq2 (after RUVs)
+#### Render heatmap
 ```{r}
-
-count_data <- result_df %>% 
-  select(-width) %>% 
-  column_to_rownames("gene")
-
-# Design
-design_formula <- "~ group"
-
-# Run DESeq2
-dds_2 <- DESeqDataSetFromMatrix(countData = count_data,
-                              colData = column_data,
-                              design = as.formula(design_formula))
-
-# Count total # of reads for each read. Remove null gene count
-dds_2 <- dds_2[rowSums(DESeq2::counts(dds_2)) > 1, ]
-
-colData(dds_2) <- cbind(colData(dds_2), pData(set_s)[rownames(colData(dds_2)),
-                                                 grep('W_[0-9]',
-                                                      colnames(pData(set_s)))])
-
-
-design(dds_2) <- ~W_1+W_2+W_3+group
-
-dds_2 <- DESeq(dds_2)
-
-res_func <- function(treatment, sign=0.05) {
-  res_pah <- results(dds_2, contrast=c("group", treatment, "ctrl"))
-
-  res_pah <- res_pah[order(res_pah$padj),]
-
-  res_pah_df <- tibble(rownames_to_column(as.data.frame(as.matrix(res_pah)), var="gene")) %>% 
-    filter(pvalue < sign)
-}
-
-py_df <- res_func("py")
-phe_df <- res_func("phe")
-
+heat_map <- render_heatmap(column_data = column_data,
+                           rectified_set = set_s)
 ```
-> PHE and PY vs CTRL denotes significant changes. RUVs normalization was a succes.
 
-#### Create heatmap for publication
+#### Re-run DESeq2 with the computed covariates (padj < 0.05)
 ```{r}
-# Select genes from pyrene samples
-py_vec <- py_df %>% pull(gene)
-# Select genes from phenanthrene samples
-phe_vec <- phe_df %>% pull(gene)
-# Union of PHE and PY genes
-pah_gene <- union(py_vec, phe_vec)
-# Calculate variance of genes
-variance_genes <- names(sort(apply(normCountData, 1, var), decreasing = TRUE))
-# Extract only genes with logFoldChange (p<0.05)
-intersect_gene <- unique(intersect(variance_genes, pah_gene))
-norm_gene <- normCountData[intersect_gene,]
-norm <- norm_gene[rowSums(norm_gene[])>0,]
+re_run_deseq <- re_run_deseq(count_data = subset(result, select=c(-width)),
+                   column_data = column_data,
+                   rectified_set = set_s,
+                   design=as.formula("~group"))
 
-# Clean metadata
-ph <- pheatmap(norm,  
-         annotation_col = subset(column_data, select=c(treatment)), 
-         show_rownames = TRUE,
-         annotation_names_col = FALSE,
-         scale = 'row',
-         fontsize_row = 8,
-         cellheight = 7,
-         cutree_rows = 5)
+PHE_result <- re_run_deseq$PHE
+res_PHE <- re_run_deseq$res_PHE
+PY_result <- re_run_deseq$PY
+res_PY <- re_run_deseq$res_PY
+```
 
-ggsave("transcriptome.pdf", ph, device="pdf", height = 8.5)
+#### GO and KEGG Annotation
+```{r message=FALSE}
+PHE_pathway <- bio_function(go_file = params$go,
+                            pathway_file = params$pathway,
+                            log_file = PHE_result)
+PHE_up <- PHE_pathway$UP
+PHE_down <- PHE_pathway$DOWN
+PHE_both <- PHE_pathway$BOTH
+  
+PY_pathway <- bio_function(go_file = params$go,
+                            pathway_file = params$pathway,
+                            log_file = PY_result)
+PY_up <- PY_pathway$UP
+PY_down <- PY_pathway$DOWN
+PY_both <- PY_pathway$BOTH
+```
+
+#### Get PHE and PY metadata
+```{r}
+# Render row metadata
+PHE_metadata <- PHE_both %>% select(gene, pathway_name, log2FoldChange)
+PY_metadata <- PY_both %>% select(gene, pathway_name, log2FoldChange)
+
+# Create row annotation
+BOTH <- inner_join(PHE_metadata, PY_metadata, by="gene") %>% 
+  rename(pathway_name = pathway_name.x) %>% 
+  select(gene, pathway_name)
+```
+
+#### Render final heatmap
+```{r}
+hm <- render_final_hp(rectified_set = set_s,
+                      column_data = column_data,
+                      row_data = BOTH)
+```
+
+
+#### Save heatplot and tables
+```{r}
+# Save heatplots
+ggplot2::ggsave(plot=hm, "heatmap.eps", device="eps", path="analysis_results",
+               width=11, height = 10)
+ggplot2::ggsave(plot=hm, "heatmap.pdf", device="pdf", path="analysis_results",
+               width=11, height = 10)
+
+# Save log2FoldChange
+readr::write_csv(PY_up, "analysis_results/py_log_up.csv")
+readr::write_csv(PY_down, "analysis_results/py_log_down.csv")
+readr::write_csv(PY_both, "analysis_results/py_log_both.csv")
+readr::write_csv(PHE_up, "analysis_results/phe_log_up.csv")
+readr::write_csv(PHE_down, "analysis_results/phe_log_down.csv")
+readr::write_csv(PHE_both, "analysis_results/phe_log_both.csv")
 ```
 
 

@@ -1,10 +1,10 @@
-sample	treatment	group	Group_2
-PHE1	phenanthrene	phe	pah
-PHE2	phenanthrene	phe	pah
-PHE3	phenanthrene	phe	pah
-CTRL1	control	ctrl	ctrl
-CTRL2	control	ctrl	ctrl
-CTRL3	control	ctrl	ctrl
-PY1	pyrene	py	pah
-PY2	pyrene	py	pah
-PY3	pyrene	py	pah
+sample	treatment	group
+PHE1	phenanthrene	phe
+PHE2	phenanthrene	phe
+PHE3	phenanthrene	phe
+CTRL1	control	ctrl
+CTRL2	control	ctrl
+CTRL3	control	ctrl
+PY1	pyrene	py
+PY2	pyrene	py
+PY3	pyrene	py

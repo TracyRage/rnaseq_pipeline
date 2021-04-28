@@ -1,2 +1,4 @@
 *.fastq.gz
 *.bam*
+.Rproj.user
+*fasta.*

@@ -1,8 +1,0 @@
-"0","# Create metadata table"
-"0","gene_df <- tibble(data.frame(gtfRegionList)) %>%"
-"0","  select(gene, product) %>%"
-"0","  drop_na() %>%"
-"0","  distinct()"
-"0",""
-"0","# Transfrom quantification matrix into tibble"
-"0","result_df <- tibble(rownames_to_column(data.frame(result), var=""gene""))"

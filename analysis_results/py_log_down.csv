@@ -1,0 +1,42 @@
+gene,log2FoldChange,padj,product_description,go_term,pathway_name
+accC,-1.9882422654246878,0.0016232264430337793,biotin carboxylase,ATP binding,Biosynthesis of antibiotics
+acnA,-2.153817038878959,2.4752989681696166e-6,aconitate hydratase 1,anaerobic respiration,2-Oxocarboxylic acid metabolism
+acnB,-0.7753126954446925,0.04906827388517035,aconitate hydratase 2,tricarboxylic acid cycle,2-Oxocarboxylic acid metabolism
+alaS,-1.5664788498110869,0.042381631423438294,alanyl-tRNA synthetase,nucleic acid binding,Aminoacyl-tRNA biosynthesis
+alr,-4.1414409960262315,1.2095899693414072e-12,biosynthetic alanine racemase,alanine metabolic process,D-Alanine metabolism
+aroB,-1.4118325203364848,0.0016721388358285985,3-dehydroquinate synthase,aromatic amino acid family biosynthetic process,Biosynthesis of amino acids
+aspS,-2.783333519224624,1.2598748890635576e-5,aspartyl-tRNA synthetase,nucleic acid binding,Aminoacyl-tRNA biosynthesis
+carA,-4.347748881809315,1.376653004424214e-22,carbamoyl-phosphate synthase small chain,carbamoyl-phosphate synthase (glutamine-hydrolyzing) activity,"Alanine, aspartate and glutamate metabolism"
+cmk,-2.09153276562171,9.366879905267529e-6,cytidylate kinase,cytidylate kinase activity,Metabolic pathways
+coaD,-2.9889237367512465,0.013258766485541747,phosphopantetheine adenylyltransferase,pantetheine-phosphate adenylyltransferase activity,Metabolic pathways
+cynS,-1.2533004352445036,0.0244696221303416,cyanate lyase,DNA binding,Nitrogen metabolism
+cysE,-1.9779987763312723,1.878299253761529e-5,O-acetylserine synthase,cytoplasm,Biosynthesis of amino acids
+dut,-2.6372302929719855,7.439694522128497e-10,deoxyuridine 5'-triphosphate nucleotidohydrolase,magnesium ion binding,Metabolic pathways
+epd,-2.341223417592671,0.04014056597360008,D-erythrose 4-phosphate dehydrogenase,"oxidoreductase activity, acting on the aldehyde or oxo group of donors, NAD or NADP as acceptor",Metabolic pathways
+fliD,-1.1092040711833802,0.016470923715294843,flagellar capping protein FliD,bacterial-type flagellum,Flagellar assembly
+fliJ,-2.7495822208740006,0.017549838983512606,flagellar protein FliJ,bacterial-type flagellum,Flagellar assembly
+gatB,-1.92800797483433,0.01711819681243177,Glu-tRNA(Gln) amidotransferase subunit B,catalytic activity,Aminoacyl-tRNA biosynthesis
+glpK,-3.030405365117141,1.5939711593480469e-6,glycerol kinase,carbohydrate metabolic process,Glycerolipid metabolism
+guaA,-3.400386665669789,2.2029200735106252e-7,GMP synthase,GMP synthase (glutamine-hydrolyzing) activity,Metabolic pathways
+leuC,-2.761412616012926,1.0279173506597596e-8,3-isopropylmalate dehydratase large subunit,3-isopropylmalate dehydratase activity,2-Oxocarboxylic acid metabolism
+lptA,-1.430970398293345,0.004323591391710116,"lysophosphatidic acid acyltransferase, LptA","transferase activity, transferring acyl groups",Biosynthesis of secondary metabolites
+nudC,-6.672214667053473,3.464409210314607e-8,NudC,NAD+ diphosphatase activity,Metabolic pathways
+phnE,-2.431706249286587,2.5782429174998525e-10,phosphonate transport protein PhnE,transmembrane transport,ABC transporters
+pilG,-3.568263220674919,2.848173532788498e-7,twitching motility protein PilG,phosphorelay signal transduction system,Biofilm formation - Pseudomonas aeruginosa
+pilH,-2.5117845034796806,5.616933128314814e-5,twitching motility protein PilH,phosphorelay signal transduction system,Biofilm formation - Pseudomonas aeruginosa
+purM,-2.091774224139151,0.0010883879297819516,phosphoribosylaminoimidazole synthetase,phosphoribosylformylglycinamidine cyclo-ligase activity,Biosynthesis of antibiotics
+recO,-4.081616597906118,5.818137195751152e-19,DNA repair protein RecO,DNA repair,Homologous recombination
+ribA,-3.6135627408031445,2.279489787432106e-12,GTP cyclohydrolase II,GTP cyclohydrolase II activity,Biosynthesis of secondary metabolites
+rplX,-1.499173509143471,0.013200511087306637,50S ribosomal protein L24,structural constituent of ribosome,Ribosome
+rpoZ,-1.8265400724550105,0.006943720215905582,RNA polymerase omega subunit,DNA binding,Metabolic pathways
+rpsD,-1.125093122109645,0.04774311800249709,30S ribosomal protein S4,rRNA binding,Ribosome
+rpsL,-1.450295595021931,7.804888982175112e-4,30S ribosomal protein S12,structural constituent of ribosome,Ribosome
+rpsM,-3.563596342660638,4.3935490062615274e-4,30S ribosomal protein S13,RNA binding,Ribosome
+rpsP,-4.29047995138,1.4090643417453098e-29,30S ribosomal protein S16,structural constituent of ribosome,Ribosome
+sdhC,-2.473115469848626,0.020492426072842185,succinate dehydrogenase (C subunit),membrane,Biosynthesis of antibiotics
+surE,-2.7615579686441922,8.344934612696119e-7,survival protein SurE,hydrolase activity,Biosynthesis of secondary metabolites
+thiC,-1.231625794816024,0.03582872219150839,thiamin biosynthesis protein ThiC,iron-sulfur cluster binding,Metabolic pathways
+thiL,-4.997993617726922,2.5782429174998525e-10,thiamine monophosphate kinase,thiamine biosynthetic process,Metabolic pathways
+tolQ,-2.703111296261962,4.793811346268259e-5,TolQ protein,integral component of membrane,Microbial metabolism in diverse environments
+uvrA,-3.697013584194859,1.0711164298273483e-14,excinuclease ABC subunit A,DNA binding,Nucleotide excision repair
+xthA,-2.885390610886009,0.03698812619970098,exodeoxyribonuclease III,nuclease activity,Base excision repair
