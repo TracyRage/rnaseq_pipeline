@@ -2,34 +2,5 @@
 title: "go_enrichment"
 ---
 
-```{r}
-knitr::opts_chunk$set(echo=FALSE, message = FALSE)
 
-library(tidyverse)
-library(janitor)
-```
-
-```{r message=FALSE}
-go_raw <- read_csv("gene_ontology_csv.csv") %>% 
-  clean_names()
-```
-
-
-```{r message=FALSE}
-go_edited <- read_csv("gene_ontology_csv.csv") %>% 
-  clean_names() %>% 
-  select(gene_name, accession, go_term, namespace) %>% 
-  distinct(gene_name, .keep_all = TRUE) %>% 
-  mutate(namespace = case_when(namespace == "molecular_function" ~ "MF",
-                   namespace == "biological_process" ~ "BP",
-                   namespace == "cellular_component" ~ "CP",
-                   TRUE ~ "other" ))
-```
-
-```{r}
-pathways <- read_csv("pathways.csv") %>% 
-  clean_names()
-
-pathways_merged <- left_join(pathways, go_raw, by="locus_tag")
-```
 

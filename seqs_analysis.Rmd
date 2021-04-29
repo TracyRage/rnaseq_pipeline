@@ -136,14 +136,11 @@ PY_both <- PY_pathway$BOTH
 
 #### Get PHE and PY metadata
 ```{r}
-# Render row metadata
-PHE_metadata <- PHE_both %>% select(gene, pathway_name, log2FoldChange)
-PY_metadata <- PY_both %>% select(gene, pathway_name, log2FoldChange)
+PHE_kegg_up <- PHE_up %>% count(pathway_name, sort=T, name="up")
+PHE_kegg_down <- PHE_down %>% count(pathway_name, sort=T, name="down")
 
-# Create row annotation
-BOTH <- inner_join(PHE_metadata, PY_metadata, by="gene") %>% 
-  rename(pathway_name = pathway_name.x) %>% 
-  select(gene, pathway_name)
+PY_kegg_up <- PY_up %>% count(pathway_name, sort=T, name="up")
+PY_kegg_down <- PY_down %>% count(pathway_name, sort=T, name="down")
 ```
 
 #### Render final heatmap
@@ -152,7 +149,6 @@ hm <- render_final_hp(rectified_set = set_s,
                       column_data = column_data,
                       row_data = BOTH)
 ```
-
 
 #### Save heatplot and tables
 ```{r}
@@ -166,9 +162,13 @@ ggplot2::ggsave(plot=hm, "heatmap.pdf", device="pdf", path="analysis_results",
 readr::write_csv(PY_up, "analysis_results/py_log_up.csv")
 readr::write_csv(PY_down, "analysis_results/py_log_down.csv")
 readr::write_csv(PY_both, "analysis_results/py_log_both.csv")
+readr::write_csv(PY_kegg_up, "analysis_results/py_kegg_up.csv")
+readr::write_csv(PY_kegg_down, "analysis_results/py_kegg_down.csv")
 readr::write_csv(PHE_up, "analysis_results/phe_log_up.csv")
 readr::write_csv(PHE_down, "analysis_results/phe_log_down.csv")
 readr::write_csv(PHE_both, "analysis_results/phe_log_both.csv")
+readr::write_csv(PHE_kegg_up, "analysis_results/phe_kegg_up.csv")
+readr::write_csv(PHE_kegg_down, "analysis_results/phe_kegg_down.csv")
 ```
 
 
