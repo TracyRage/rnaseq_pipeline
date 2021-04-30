@@ -2,3 +2,7 @@
 *.bam*
 .Rproj.user
 *fasta.*
+*.RData
+*.Rhistory
+*.Rproj*
+*.Rprofile
