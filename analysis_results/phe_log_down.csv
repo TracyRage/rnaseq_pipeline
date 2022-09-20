@@ -1,39 +1,39 @@
 gene,log2FoldChange,padj,product_description,go_term,pathway_name
-accC,-1.5190969675804684,0.03300694254345563,biotin carboxylase,ATP binding,Biosynthesis of antibiotics
-aceE,-1.0776570626667503,0.012676991438221142,pyruvate dehydrogenase,oxidoreductase activity,Biosynthesis of antibiotics
-aceF,-1.2853966031152553,0.019245788698658107,dihydrolipoamide acetyltransferase,"transferase activity, transferring acyl groups",Biosynthesis of antibiotics
-acnA,-2.4099654770352332,6.617983075393005e-7,aconitate hydratase 1,anaerobic respiration,2-Oxocarboxylic acid metabolism
-alr,-5.041826763912693,1.6039959985677567e-16,biosynthetic alanine racemase,alanine metabolic process,D-Alanine metabolism
-aroB,-1.175261422061786,0.018247589084168046,3-dehydroquinate synthase,aromatic amino acid family biosynthetic process,Biosynthesis of amino acids
-aspS,-2.982860047317914,2.426943020652293e-5,aspartyl-tRNA synthetase,nucleic acid binding,Aminoacyl-tRNA biosynthesis
-carA,-3.348086230189849,3.438471638018426e-12,carbamoyl-phosphate synthase small chain,carbamoyl-phosphate synthase (glutamine-hydrolyzing) activity,"Alanine, aspartate and glutamate metabolism"
-cmk,-2.1416059522898525,2.22655341309616e-5,cytidylate kinase,cytidylate kinase activity,Metabolic pathways
-cynS,-1.2601319806920521,0.03300694254345563,cyanate lyase,DNA binding,Nitrogen metabolism
-cysE,-1.9367196849758,1.0981629539378255e-4,O-acetylserine synthase,cytoplasm,Biosynthesis of amino acids
-dapF,-1.5730079026405661,0.005483461207498291,diaminopimelate epimerase,cytoplasm,Biosynthesis of amino acids
-dut,-2.1564244743964442,3.4741911654158688e-6,deoxyuridine 5'-triphosphate nucleotidohydrolase,magnesium ion binding,Metabolic pathways
-epd,-3.4681121314052836,0.004519300128795665,D-erythrose 4-phosphate dehydrogenase,"oxidoreductase activity, acting on the aldehyde or oxo group of donors, NAD or NADP as acceptor",Metabolic pathways
-fliD,-1.3697486243681603,0.0052999915124483715,flagellar capping protein FliD,bacterial-type flagellum,Flagellar assembly
-fliJ,-3.1156401144998562,0.011298050161281957,flagellar protein FliJ,bacterial-type flagellum,Flagellar assembly
-gatB,-2.489784078982016,0.0037754001994571773,Glu-tRNA(Gln) amidotransferase subunit B,catalytic activity,Aminoacyl-tRNA biosynthesis
-glcD,-1.135020655057594,0.027810777013945322,glycolate oxidase subunit GlcD,catalytic activity,Biosynthesis of antibiotics
-glpK,-2.3055954717515164,7.258547795339422e-4,glycerol kinase,carbohydrate metabolic process,Glycerolipid metabolism
-guaA,-2.0285301682545778,0.007259669424299018,GMP synthase,GMP synthase (glutamine-hydrolyzing) activity,Metabolic pathways
-leuC,-3.0089306499758126,6.070396436919331e-9,3-isopropylmalate dehydratase large subunit,3-isopropylmalate dehydratase activity,2-Oxocarboxylic acid metabolism
-lptA,-1.9917848424079478,1.145603017816504e-4,"lysophosphatidic acid acyltransferase, LptA","transferase activity, transferring acyl groups",Biosynthesis of secondary metabolites
-nudC,-6.045714661122242,2.9592549428407836e-6,NudC,NAD+ diphosphatase activity,Metabolic pathways
-phnE,-2.3188070558580614,1.7663713774059533e-8,phosphonate transport protein PhnE,transmembrane transport,ABC transporters
-pilG,-4.091112736426076,3.880421270141778e-8,twitching motility protein PilG,phosphorelay signal transduction system,Biofilm formation - Pseudomonas aeruginosa
-pilH,-3.271183889164606,7.634612938930454e-7,twitching motility protein PilH,phosphorelay signal transduction system,Biofilm formation - Pseudomonas aeruginosa
-purM,-1.6980369147894123,0.01728272896865746,phosphoribosylaminoimidazole synthetase,phosphoribosylformylglycinamidine cyclo-ligase activity,Biosynthesis of antibiotics
-recO,-4.210680675273612,8.735258189334687e-18,DNA repair protein RecO,DNA repair,Homologous recombination
-ribA,-3.3682234861003577,8.993903100834003e-10,GTP cyclohydrolase II,GTP cyclohydrolase II activity,Biosynthesis of secondary metabolites
-rplX,-1.335778733723041,0.04435737789380904,50S ribosomal protein L24,structural constituent of ribosome,Ribosome
-rpoZ,-1.7586163400566686,0.016439030624361303,RNA polymerase omega subunit,DNA binding,Metabolic pathways
-rpsL,-1.3269506381114324,0.005483461207498291,30S ribosomal protein S12,structural constituent of ribosome,Ribosome
-rpsM,-2.6324055776833477,0.019534360426883206,30S ribosomal protein S13,RNA binding,Ribosome
-rpsP,-4.598450296690334,5.236713903894546e-30,30S ribosomal protein S16,structural constituent of ribosome,Ribosome
-surE,-2.6569595244485997,1.1820084642071521e-5,survival protein SurE,hydrolase activity,Biosynthesis of secondary metabolites
-thiL,-4.186169228903605,5.585720011578359e-7,thiamine monophosphate kinase,thiamine biosynthetic process,Metabolic pathways
-tolQ,-2.5458432084182707,4.3001862970887256e-4,TolQ protein,integral component of membrane,Microbial metabolism in diverse environments
-uvrA,-2.666192568516375,4.785350930801862e-7,excinuclease ABC subunit A,DNA binding,Nucleotide excision repair
+accC,-1.51909696758047,0.0330069425434556,biotin carboxylase,ATP binding,Biosinteza antibioticelor
+aceE,-1.07765706266675,0.0126769914382211,pyruvate dehydrogenase,oxidoreductase activity,Biosinteza antibioticelor
+aceF,-1.28539660311526,0.0192457886986581,dihydrolipoamide acetyltransferase,"transferase activity, transferring acyl groups",Biosinteza antibioticelor
+acnA,-2.40996547703523,6.61798307539301E-07,aconitate hydratase 1,anaerobic respiration,Metabolismul acidului 2-Oxocarboxilic
+alr,-5.04182676391269,1.60399599856776E-16,biosynthetic alanine racemase,alanine metabolic process,Metabolismul D-Alaninei
+aroB,-1.17526142206179,0.018247589084168,3-dehydroquinate synthase,aromatic amino acid family biosynthetic process,Biosinteza aminoacizilor
+aspS,-2.98286004731791,2.42694302065229E-05,aspartyl-tRNA synthetase,nucleic acid binding,Biosinteza Aminoacil-tARN
+carA,-3.34808623018985,3.43847163801843E-12,carbamoyl-phosphate synthase small chain,carbamoyl-phosphate synthase (glutamine-hydrolyzing) activity,"Metabolismul Alaninei, aspartatului și glutamatului"
+cmk,-2.14160595228985,2.22655341309616E-05,cytidylate kinase,cytidylate kinase activity,Căi metabolice
+cynS,-1.26013198069205,0.0330069425434556,cyanate lyase,DNA binding,Metabolismul azotului
+cysE,-1.9367196849758,0.000109816295393783,O-acetylserine synthase,cytoplasm,Biosinteza aminoacizilor
+dapF,-1.57300790264057,0.00548346120749829,diaminopimelate epimerase,cytoplasm,Căi metabolice
+dut,-2.15642447439644,3.47419116541587E-06,deoxyuridine 5'-triphosphate nucleotidohydrolase,magnesium ion binding,Căi metabolice
+epd,-3.46811213140528,0.00451930012879567,D-erythrose 4-phosphate dehydrogenase,"oxidoreductase activity, acting on the aldehyde or oxo group of donors, NAD or NADP as acceptor",Căi metabolice
+fliD,-1.36974862436816,0.00529999151244837,flagellar capping protein FliD,bacterial-type flagellum,Asamblare flageralară
+fliJ,-3.11564011449986,0.011298050161282,flagellar protein FliJ,bacterial-type flagellum,Asamblare flageralară
+gatB,-2.48978407898202,0.00377540019945718,Glu-tRNA(Gln) amidotransferase subunit B,catalytic activity,Biosinteza Aminoacil-tARN
+glcD,-1.13502065505759,0.0278107770139453,glycolate oxidase subunit GlcD,catalytic activity,Biosinteza antibioticelor
+glpK,-2.30559547175152,0.000725854779533942,glycerol kinase,carbohydrate metabolic process,Metabolismul glicerolipid
+guaA,-2.02853016825458,0.00725966942429902,GMP synthase,GMP synthase (glutamine-hydrolyzing) activity,Căi metabolice
+leuC,-3.00893064997581,6.07039643691933E-09,3-isopropylmalate dehydratase large subunit,3-isopropylmalate dehydratase activity,Metabolismul acidului 2-Oxocarboxilic
+lptA,-1.99178484240795,0.00011456030178165,"lysophosphatidic acid acyltransferase, LptA","transferase activity, transferring acyl groups",Biosinteza metaboliților secundari
+nudC,-6.04571466112224,2.95925494284078E-06,NudC,NAD+ diphosphatase activity,Căi metabolice
+phnE,-2.31880705585806,1.76637137740595E-08,phosphonate transport protein PhnE,transmembrane transport,Transportori ABC
+pilG,-4.09111273642608,3.88042127014178E-08,twitching motility protein PilG,phosphorelay signal transduction system,Formarea biofilmului
+pilH,-3.27118388916461,7.63461293893045E-07,twitching motility protein PilH,phosphorelay signal transduction system,Formarea biofilmului
+purM,-1.69803691478941,0.0172827289686575,phosphoribosylaminoimidazole synthetase,phosphoribosylformylglycinamidine cyclo-ligase activity,Biosinteza antibioticelor
+recO,-4.21068067527361,8.73525818933469E-18,DNA repair protein RecO,DNA repair,Recombinare omoloagă
+ribA,-3.36822348610036,8.993903100834E-10,GTP cyclohydrolase II,GTP cyclohydrolase II activity,Biosinteza metaboliților secundari
+rplX,-1.33577873372304,0.044357377893809,50S ribosomal protein L24,structural constituent of ribosome,Ribosom
+rpoZ,-1.75861634005667,0.0164390306243613,RNA polymerase omega subunit,DNA binding,Căi metabolice
+rpsL,-1.32695063811143,0.00548346120749829,30S ribosomal protein S12,structural constituent of ribosome,Ribosom
+rpsM,-2.63240557768335,0.0195343604268832,30S ribosomal protein S13,RNA binding,Ribosom
+rpsP,-4.59845029669033,5.23671390389455E-30,30S ribosomal protein S16,structural constituent of ribosome,Ribosom
+surE,-2.6569595244486,1.18200846420715E-05,survival protein SurE,hydrolase activity,Biosinteza metaboliților secundari
+thiL,-4.18616922890361,5.58572001157836E-07,thiamine monophosphate kinase,thiamine biosynthetic process,Căi metabolice
+tolQ,-2.54584320841827,0.000430018629708873,TolQ protein,integral component of membrane,Metabolismul microbian în diverse medii
+uvrA,-2.66619256851638,4.78535093080186E-07,excinuclease ABC subunit A,DNA binding,Reparație ADN

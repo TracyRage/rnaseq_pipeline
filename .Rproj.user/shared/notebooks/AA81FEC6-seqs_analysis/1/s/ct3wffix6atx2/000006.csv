@@ -1,5 +1,0 @@
-"0",""
-"0","result_no_length <- subset(result, select=-width)"
-"0","plotRLE(result_no_length, outline=F, col=as.numeric(column_data$group_2),"
-"0","        main=""Raw counts"")"
-"2","NAs introduced by coercion"

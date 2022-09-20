@@ -1,48 +1,48 @@
 gene,log2FoldChange,padj,product_description,go_term,pathway_name
-alc,2.9202564578252406,5.279320123597351e-8,allantoicase,allantoin catabolic process,Metabolic pathways
-arcA,3.0867667078132004,4.923806505199072e-8,arginine deiminase,arginine catabolic process,Arginine biosynthesis
-arcC,2.4105653954399404,1.6434021883111577e-5,carbamate kinase,arginine metabolic process,Arginine biosynthesis
-argF,3.2927699280826133,3.885403342052436e-8,"ornithine carbamoyltransferase, anabolic",amino acid binding,Arginine biosynthesis
-aroK,1.799392413034312,3.5549056650252888e-6,shikimate kinase,shikimate kinase activity,Biosynthesis of amino acids
-cobA,1.1383114660728095,0.028695239088681407,uroporphyrin-III C-methyltransferase,methyltransferase activity,Biosynthesis of secondary metabolites
-cobO,1.623274026737061,0.003982258014180845,cob(I)alamin adenosyltransferase,ATP binding,Metabolic pathways
-cobU,3.1535180301362566,2.2970548044878338e-5,nicotinate-nucleotide--dimethylbenzimidazole phosphoribosyltransferase,nicotinate-nucleotide-dimethylbenzimidazole phosphoribosyltransferase activity,Metabolic pathways
-cysQ,1.3417252624088793,0.028695239088681407,"3,5-bisphosphate nucleotidase CysQ",phosphatidylinositol phosphorylation,Biosynthesis of antibiotics
-cysT,2.037161604528729,2.2490813133797864e-5,sulfate transport protein CysT,sulfate transport,ABC transporters
-dapE,1.8375459719009295,0.008382599655485348,succinyl-diaminopimelate desuccinylase,hydrolase activity,Biosynthesis of amino acids
-dctP,2.429130427877191,0.006038122557698275,DctP,transmembrane transport,Two-component system
-fabA,1.6121419513294886,4.3935490062615274e-4,beta-hydroxydecanoyl-ACP dehydrase,cytoplasm,Fatty acid biosynthesis
-fdnG,1.1251569744402663,0.010374845509443582,"formate dehydrogenase-O, major subunit",anaerobic respiration,Carbon metabolism
-flgH,2.7384266405898816,6.478602537746921e-4,flagellar L-ring protein precursor FlgH,motor activity,Flagellar assembly
-flgK,1.4911261494518155,0.015186985307836295,flagellar hook-associated protein 1 FlgK,structural molecule activity,Flagellar assembly
-folB,9.18712334264103,2.241939427176394e-9,dihydroneopterin aldolase,dihydroneopterin aldolase activity,Folate biosynthesis
-gatC,0.9474976383417658,0.03490041228338439,Glu-tRNA(Gln) amidotransferase subunit C,regulation of translational fidelity,Aminoacyl-tRNA biosynthesis
-glcF,2.0212270208035563,9.366879905267529e-6,glycolate oxidase subunit GlcF,iron-sulfur cluster binding,Biosynthesis of antibiotics
-gmk,1.1248292991844104,0.016470923715294843,guanylate kinase,guanylate kinase activity,Metabolic pathways
-ilvE,2.974943185990618,8.630718417542942e-9,branched-chain amino acid transferase,catalytic activity,2-Oxocarboxylic acid metabolism
-lepB,1.3773490223169318,3.07745725609833e-4,signal peptidase I,serine-type peptidase activity,Protein export
-lipA,1.6308394444550371,0.004021216121980324,lactonizing lipase precursor,carbon utilization,Glycerolipid metabolism
-metE,1.8714412828780085,8.836308311540537e-7,5-methyltetrahydropteroyltriglutamate-homocysteine S-methyltransferase,zinc ion binding,Biosynthesis of amino acids
-nirD,1.910815485407395,1.1847474890517676e-4,assimilatory nitrite reductase small subunit,oxidoreductase activity,Microbial metabolism in diverse environments
-pheS,1.1297307139685335,0.02863001320897797,"phenylalanyl-tRNA synthetase, alpha-subunit",phenylalanine-tRNA ligase activity,Aminoacyl-tRNA biosynthesis
-plsX,1.7489550980010733,0.005177312919371991,fatty acid biosynthesis protein PlsX,catalytic activity,Biosynthesis of secondary metabolites
-ptsN,1.5966758629927682,1.559939346815663e-4,nitrogen regulatory IIA protein,protein-N(PI)-phosphohistidine-sugar phosphotransferase activity,Phosphotransferase system (PTS)
-ptsP,2.3813993302044776,1.9841151884561038e-6,phosphoenolpyruvate-protein phosphotransferase PtsP,"transferase activity, transferring phosphorus-containing groups",Phosphotransferase system (PTS)
-purE,3.139835265271944,1.165348574584533e-5,"phosphoribosylaminoimidazole carboxylase, catalytic subunit",'de novo' IMP biosynthetic process,Biosynthesis of antibiotics
-recA,2.1454242229900955,0.009908284204040725,RecA protein,DNA binding,Homologous recombination
-recB,4.235984846316447,4.705746513047725e-10,exodeoxyribonuclease V beta chain,ATP binding,Homologous recombination
-rpiA,1.1734822618772136,0.01815605917794228,ribose 5-phosphate isomerase,ribose-5-phosphate isomerase activity,Biosynthesis of amino acids
-rplJ,2.0074789588772317,3.1258775165554763e-6,50S ribosomal protein L10,ribosome biogenesis,Ribosome
-rplL,3.7142786445008977,6.46560641594403e-17,50S ribosomal protein L7 / L12,structural constituent of ribosome,Ribosome
-rplO,3.4354419558962763,3.4678983074264505e-10,50S ribosomal protein L15,structural constituent of ribosome,Ribosome
-rplS,2.13403861186448,0.004021216121980324,50S ribosomal protein L19,structural constituent of ribosome,Ribosome
-rpmC,1.4075413933168048,0.013441463611611101,50S ribosomal protein L29,structural constituent of ribosome,Ribosome
-rpoB,2.310159220460534,3.056001482720718e-7,DNA-directed RNA polymerase beta chain,DNA-directed 5'-3' RNA polymerase activity,Metabolic pathways
-rpsF,1.6525614203097991,0.007579067160385956,30S ribosomal protein S6,structural constituent of ribosome,Ribosome
-secA,1.5449536192794573,0.004764892187750299,secretion protein SecA,ATP binding,Bacterial secretion system
-secF,3.4376977060011464,0.016427549159564632,secretion protein SecF,intracellular protein transport,Bacterial secretion system
-secY,1.0367736236649272,0.015186985307836295,secretion protein SecY,membrane,Bacterial secretion system
-selD,1.60825727875161,1.237533992330863e-4,selenophosphate synthetase,ATP binding,Metabolic pathways
-tatB,1.443061258969463,0.008767665042435268,translocation protein TatB,membrane,Bacterial secretion system
-uvrD,1.125026735530753,0.03582872219150839,UvrD helicase,DNA helicase activity,Mismatch repair
-zur,1.4872015516728214,0.043868745907271176,"zinc uptake regulator, Zur",DNA-binding transcription factor activity,Quorum sensing
+alc,2.92025645782524,5.27932012359735E-08,allantoicase,allantoin catabolic process,Căi metabolice
+arcA,3.0867667078132,4.92380650519907E-08,arginine deiminase,arginine catabolic process,Biosinteza argininei
+arcC,2.41056539543994,1.64340218831116E-05,carbamate kinase,arginine metabolic process,Biosinteza argininei
+argF,3.29276992808261,3.88540334205244E-08,"ornithine carbamoyltransferase, anabolic",amino acid binding,Biosinteza argininei
+aroK,1.79939241303431,3.55490566502529E-06,shikimate kinase,shikimate kinase activity,Biosinteza aminoacizilor
+cobA,1.13831146607281,0.0286952390886814,uroporphyrin-III C-methyltransferase,methyltransferase activity,Biosinteza metaboliților secundari
+cobO,1.62327402673706,0.00398225801418085,cob(I)alamin adenosyltransferase,ATP binding,Căi metabolice
+cobU,3.15351803013626,2.29705480448783E-05,nicotinate-nucleotide--dimethylbenzimidazole phosphoribosyltransferase,nicotinate-nucleotide-dimethylbenzimidazole phosphoribosyltransferase activity,Căi metabolice
+cysQ,1.34172526240888,0.0286952390886814,"3,5-bisphosphate nucleotidase CysQ",phosphatidylinositol phosphorylation,Biosinteza antibioticelor
+cysT,2.03716160452873,2.24908131337979E-05,sulfate transport protein CysT,sulfate transport,Transportori ABC
+dapE,1.83754597190093,0.00838259965548535,succinyl-diaminopimelate desuccinylase,hydrolase activity,Biosinteza aminoacizilor
+dctP,2.42913042787719,0.00603812255769828,DctP,transmembrane transport,Sistemul two-component
+fabA,1.61214195132949,0.000439354900626153,beta-hydroxydecanoyl-ACP dehydrase,cytoplasm,Biosinteza acizilor grași
+fdnG,1.12515697444027,0.0103748455094436,"formate dehydrogenase-O, major subunit",anaerobic respiration,Metabolismul carbonului
+flgH,2.73842664058988,0.000647860253774692,flagellar L-ring protein precursor FlgH,motor activity,Asamblare flagelară
+flgK,1.49112614945182,0.0151869853078363,flagellar hook-associated protein 1 FlgK,structural molecule activity,Asamblare flagelară
+folB,9.18712334264103,2.24193942717639E-09,dihydroneopterin aldolase,dihydroneopterin aldolase activity,Biosinteza folatului
+gatC,0.947497638341766,0.0349004122833844,Glu-tRNA(Gln) amidotransferase subunit C,regulation of translational fidelity,Biosinteza Aminoacil-tARN
+glcF,2.02122702080356,9.36687990526753E-06,glycolate oxidase subunit GlcF,iron-sulfur cluster binding,Biosinteza antibioticelor
+gmk,1.12482929918441,0.0164709237152948,guanylate kinase,guanylate kinase activity,Căi metabolice
+ilvE,2.97494318599062,8.63071841754294E-09,branched-chain amino acid transferase,catalytic activity,Metabolismul acidului 2-Oxocarboxilic
+lepB,1.37734902231693,0.000307745725609833,signal peptidase I,serine-type peptidase activity,Exportul proteinelor
+lipA,1.63083944445504,0.00402121612198032,lactonizing lipase precursor,carbon utilization,Metabolismul glicerolipid
+metE,1.87144128287801,8.83630831154054E-07,5-methyltetrahydropteroyltriglutamate-homocysteine S-methyltransferase,zinc ion binding,Biosinteza aminoacizilor
+nirD,1.9108154854074,0.000118474748905177,assimilatory nitrite reductase small subunit,oxidoreductase activity,Metabolismul microbian în diverse medii
+pheS,1.12973071396853,0.028630013208978,"phenylalanyl-tRNA synthetase, alpha-subunit",phenylalanine-tRNA ligase activity,Biosinteza Aminoacil-tARN
+plsX,1.74895509800107,0.00517731291937199,fatty acid biosynthesis protein PlsX,catalytic activity,Biosinteza metaboliților secundari
+ptsN,1.59667586299277,0.000155993934681566,nitrogen regulatory IIA protein,protein-N(PI)-phosphohistidine-sugar phosphotransferase activity,Sistemul fosfotransferazic (PTS)
+ptsP,2.38139933020448,1.9841151884561E-06,phosphoenolpyruvate-protein phosphotransferase PtsP,"transferase activity, transferring phosphorus-containing groups",Sistemul fosfotransferazic (PTS)
+purE,3.13983526527194,1.16534857458453E-05,"phosphoribosylaminoimidazole carboxylase, catalytic subunit",'de novo' IMP biosynthetic process,Biosinteza antibioticelor
+recA,2.1454242229901,0.00990828420404073,RecA protein,DNA binding,Recombinare omoloagă
+recB,4.23598484631645,4.70574651304773E-10,exodeoxyribonuclease V beta chain,ATP binding,Recombinare omoloagă
+rpiA,1.17348226187721,0.0181560591779423,ribose 5-phosphate isomerase,ribose-5-phosphate isomerase activity,Biosinteza aminoacizilor
+rplJ,2.00747895887723,3.12587751655548E-06,50S ribosomal protein L10,ribosome biogenesis,Ribosom
+rplL,3.7142786445009,6.46560641594403E-17,50S ribosomal protein L7 / L12,structural constituent of ribosome,Ribosom
+rplO,3.43544195589628,3.46789830742645E-10,50S ribosomal protein L15,structural constituent of ribosome,Ribosom
+rplS,2.13403861186448,0.00402121612198032,50S ribosomal protein L19,structural constituent of ribosome,Ribosom
+rpmC,1.4075413933168,0.0134414636116111,50S ribosomal protein L29,structural constituent of ribosome,Ribosom
+rpoB,2.31015922046053,3.05600148272072E-07,DNA-directed RNA polymerase beta chain,DNA-directed 5'-3' RNA polymerase activity,Căi metabolice
+rpsF,1.6525614203098,0.00757906716038596,30S ribosomal protein S6,structural constituent of ribosome,Ribosom
+secA,1.54495361927946,0.0047648921877503,secretion protein SecA,ATP binding,Sistemul de secreție
+secF,3.43769770600115,0.0164275491595646,secretion protein SecF,intracellular protein transport,Sistemul de secreție
+secY,1.03677362366493,0.0151869853078363,secretion protein SecY,membrane,Sistemul de secreție
+selD,1.60825727875161,0.000123753399233086,selenophosphate synthetase,ATP binding,Căi metabolice
+tatB,1.44306125896946,0.00876766504243527,translocation protein TatB,membrane,Sistemul de secreție
+uvrD,1.12502673553075,0.0358287221915084,UvrD helicase,DNA helicase activity,Reparație ADN
+zur,1.48720155167282,0.0438687459072712,"zinc uptake regulator, Zur",DNA-binding transcription factor activity,Quorum sensing

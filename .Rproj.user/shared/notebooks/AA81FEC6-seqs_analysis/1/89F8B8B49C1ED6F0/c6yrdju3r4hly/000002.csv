@@ -1,3 +1,0 @@
-"0","genome <- here::here(""genome"", ""pseudomonas_aeruginosa_pao1_107.fna"")"
-"0","sample_file <- here::here(""seqs"", ""seqs_test.tsv"")"
-"0","annotation_file <- here::here(""genome"", ""pseudomonas_aeruginosa_pao1_107.gtf"")"

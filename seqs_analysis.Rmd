@@ -134,6 +134,13 @@ PY_down <- PY_pathway$DOWN
 PY_both <- PY_pathway$BOTH
 ```
 
+### Rename columns from EN to RO
+```{r}
+```
+
+
+
+
 #### Get PHE and PY metadata
 ```{r}
 PHE_kegg_up <- PHE_up %>% count(pathway_name, sort=T, name="up")
@@ -172,6 +179,48 @@ readr::write_csv(PHE_kegg_down, "analysis_results/phe_kegg_down.csv")
 ```
 
 
+```{r}
+PY_UP_2 <- readr::read_csv("analysis_results/py_log_up.csv") %>% 
+  select(gene, pathway_name)
+PY_DOWN_2 <- readr::read_csv("analysis_results/py_log_down.csv") %>% 
+  select(gene, pathway_name)
+
+PHE_UP_2 <-  readr::read_csv("analysis_results/phe_log_up.csv") %>% 
+  select(gene, pathway_name)
+PHE_DOWN_2 <- readr::read_csv("analysis_results/phe_log_down.csv") %>% 
+  select(gene, pathway_name)
+
+BOTH_2 <- bind_rows(PY_UP_2, PY_DOWN_2, PHE_UP_2, PHE_DOWN_2) %>% 
+  distinct(gene, .keep_all = T) %>% 
+  rename(`Căi metabolice` = pathway_name,
+         Gene = gene)
+
+column_data_2 <- column_data %>% 
+  mutate(Treatment = case_when(str_detect(Treatment, "phenanthrene") ~ "fenantren", 
+                               str_detect(Treatment, "pyrene") ~ "piren",
+                               TRUE ~ Treatment)) %>% 
+  rename(Tratament = Treatment)
+
+hm_2 <- render_final_hp_RO(rectified_set = set_s,
+                      column_data = column_data_2,
+                      row_data = BOTH_2)
+
+
+
+PY_UP_waffle <- get_waffle(PY_UP_2)
+ggsave("analysis_results/PY_UP_waffle.tiff", plot = PY_UP_waffle)
+PY_DOWN_waffle <- get_waffle(PY_DOWN_2)
+ggsave("analysis_results/PY_DOWN_waffle.tiff", plot = PY_DOWN_waffle)
+
+PHE_UP_waffle <- get_waffle(PHE_UP_2)
+ggsave("analysis_results/PHE_UP_waffle.tiff", plot = PHE_UP_waffle)
+PHE_DOWN_waffle <- get_waffle(PHE_DOWN_2)
+ggsave("analysis_results/PHE_DOWN_waffle.tiff", plot = PHE_DOWN_waffle)
+
+
+
+
+```
 
 
 

@@ -1,8 +1,0 @@
-"0","normCountData <- normCounts(set_s)"
-"0",""
-"0","selectedGenes <- names(sort(apply(normCountData, 1, var), decreasing = TRUE))[1:114]"
-"0",""
-"0","pheatmap(normCountData[selectedGenes,], "
-"0","         annotation_col = column_data, "
-"0","         show_rownames = FALSE,"
-"0","         scale = 'row')"

@@ -233,3 +233,62 @@ render_final_hp <- function(rectified_set, column_data, row_data) {
                            display_numbers = TRUE)
   return(ph)
 }
+
+# Render final heatmap
+render_final_hp_RO <- function(rectified_set, column_data, row_data) {
+  # Normalize gene counts
+  norm_count <- normCounts(rectified_set)
+  # Select genes w/ variance != 0
+  selected_genes <- names(sort(discard(apply(norm_count, 1, var), ~.x == 0),
+                               decreasing = TRUE))
+  norm <- tibble(rownames_to_column(as.data.frame(norm_count[selected_genes, ]), "Gene"))
+  
+  print(norm)
+  
+  row_annot <- left_join(row_data, norm, by="Gene") %>% 
+    drop_na()
+  
+  print(row_annot)
+  
+  # Normalized dataframe
+  norm_2 <- column_to_rownames(row_annot %>% select(-`Căi metabolice`), "Gene")
+  
+  print(norm_2)
+  # Rectified rownames annotation
+  row_annot_2 <- column_to_rownames(row_annot %>% select(Gene, `Căi metabolice`) %>% 
+                                      rename(`Căi metabolice`=`Căi metabolice`), "Gene")
+  
+  print(row_annot_2)
+  
+  colnames(column_data)[colnames(column_data) == "treatment"] <- "Tratament"
+  
+  ph <- pheatmap::pheatmap(norm_2,
+                           annotation_col = subset(column_data, select=c(-group)),
+                           annotation_row = row_annot_2,
+                           annotation_names_col = FALSE,
+                           scale="row",
+                           cutree_rows = 15,
+                           cutree_cols = 3,
+                           gaps_row = 10,
+                           gaps_col = 30,
+                           angle_col = 45,
+                           cellheight = 8,
+                           cellwidth = 40,
+                           fontsize_row = 8,
+                           display_numbers = TRUE,
+                           filename = "analysis_results/heatmap_ro.png")
+  return(ph)
+}
+
+### Get waffle chart (in RO)
+get_waffle <- function(pathway_counts) {
+  pathway_counts %>% 
+    rename(`Căi metabolice` = pathway_name) %>% 
+    dplyr::count(`Căi metabolice`, sort = T, name="counts") %>% 
+    arrange(desc(counts)) %>% 
+    head(16) %>% 
+    ggplot(aes(fill = `Căi metabolice`, values = counts)) +
+    geom_waffle(color = "white", size=1.125, n_rows = 6) +
+    coord_equal() +
+    theme_enhance_waffle()
+}

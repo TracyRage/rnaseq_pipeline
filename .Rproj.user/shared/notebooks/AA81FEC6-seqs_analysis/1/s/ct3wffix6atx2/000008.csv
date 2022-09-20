@@ -1,4 +1,0 @@
-"0","plotRLE(DESeq2::counts(dds, normalized=T),"
-"0","        outline=F, col=as.numeric(column_data$group_2),"
-"0","        main=""Normalized counts"")"
-"2","NAs introduced by coercion"

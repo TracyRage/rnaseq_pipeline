@@ -1,4 +1,0 @@
-"0","pca_graph <- DESeq2::plotPCA(rld, ntop = 151, intgroup = 'group') + theme_bw()
-"
-"2","Error in theme_bw() : could not find function ""theme_bw""
-"
